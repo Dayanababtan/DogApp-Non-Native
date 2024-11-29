@@ -7,16 +7,16 @@ class DogCard extends StatelessWidget {
   final VoidCallback onEdit;   // Callback for edit functionality
 
   const DogCard({
-    Key? key,
+    super.key,
     required this.dog,
     required this.onDelete,
     required this.onEdit,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Row(
@@ -30,12 +30,12 @@ class DogCard extends StatelessWidget {
                 children: [
                   Text(
                     dog.name,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text("Breed: ${dog.breed}"),
                   Text("Age: ${dog.age}"),
                   Text("Favorite Activity: ${dog.activity}"),
@@ -45,13 +45,13 @@ class DogCard extends StatelessWidget {
             ),
             // Edit button
             IconButton(
-              icon: Icon(Icons.edit, color: Colors.blue),
+              icon: const Icon(Icons.edit, color: Colors.blue),
               onPressed: onEdit, // Trigger the edit callback
               tooltip: 'Edit',
             ),
             // Delete button
             IconButton(
-              icon: Icon(Icons.delete, color: Colors.red),
+              icon: const Icon(Icons.delete, color: Colors.red),
               onPressed: onDelete, // Trigger the delete callback
               tooltip: 'Delete',
             ),

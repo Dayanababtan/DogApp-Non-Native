@@ -3,7 +3,10 @@ import '../models/dog.dart';
 import '../widgets/dog_card.dart';
 
 class DogListScreen extends StatefulWidget {
+  const DogListScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _DogListScreenState createState() => _DogListScreenState();
 }
 
@@ -53,21 +56,21 @@ class _DogListScreenState extends State<DogListScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Add a New Dog'),
+          title: const Text('Add a New Dog'),
           content: _buildDogInputFields(),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
             ElevatedButton(
               onPressed: () {
                 _addNewDog();
                 Navigator.of(context).pop();
               },
-              child: Text('Add'),
+              child: const Text('Add'),
             ),
           ],
         );
@@ -105,21 +108,21 @@ class _DogListScreenState extends State<DogListScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Update Dog Details'),
+          title: const Text('Update Dog Details'),
           content: _buildDogInputFields(),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
             ElevatedButton(
               onPressed: () {
                 _updateDog(index);
                 Navigator.of(context).pop();
               },
-              child: Text('Save'),
+              child: const Text('Save'),
             ),
           ],
         );
@@ -148,22 +151,22 @@ class _DogListScreenState extends State<DogListScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Are you sure?'),
+          title: const Text('Are you sure?'),
           content: Text('Do you really want to delete ${dogs[index].name}?'),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('No'),
+              child: const Text('No'),
             ),
             ElevatedButton(
               onPressed: () {
                 _deleteDog(index);
                 Navigator.of(context).pop();
               },
-              child: Text('Yes'),
               style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+              child: const Text('Yes'),
             ),
           ],
         );
@@ -186,23 +189,23 @@ class _DogListScreenState extends State<DogListScreen> {
         children: [
           TextField(
             controller: _nameController,
-            decoration: InputDecoration(labelText: 'Name'),
+            decoration: const InputDecoration(labelText: 'Name'),
           ),
           TextField(
             controller: _breedController,
-            decoration: InputDecoration(labelText: 'Breed'),
+            decoration: const InputDecoration(labelText: 'Breed'),
           ),
           TextField(
             controller: _ageController,
-            decoration: InputDecoration(labelText: 'Age'),
+            decoration: const InputDecoration(labelText: 'Age'),
           ),
           TextField(
             controller: _activityController,
-            decoration: InputDecoration(labelText: 'Favorite Activity'),
+            decoration: const InputDecoration(labelText: 'Favorite Activity'),
           ),
           TextField(
             controller: _weightController,
-            decoration: InputDecoration(labelText: 'Weight'),
+            decoration: const InputDecoration(labelText: 'Weight'),
           ),
         ],
       ),
@@ -227,7 +230,7 @@ class _DogListScreenState extends State<DogListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dog List'),
+        title: const Text('Dog List'),
       ),
       body: ListView.builder(
         itemCount: dogs.length,
@@ -241,8 +244,8 @@ class _DogListScreenState extends State<DogListScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _showAddDogDialog,
-        child: Icon(Icons.add),
         tooltip: 'Add Dog',
+        child: const Icon(Icons.add),
       ),
     );
   }
